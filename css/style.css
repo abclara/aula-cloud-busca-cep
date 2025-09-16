@@ -12,3 +12,12 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+.loading{
+  width: 100%;
+    justify-content: center;
+    display: flex;
+    margin-top: 100px;
+    position: absolute;
+    z-index: 1000;
+}
