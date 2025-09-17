@@ -29,7 +29,7 @@
 
 
   <!-- loading -->
-   <div class="loading center">
+  <div class="loading center">
     <div class="preloader-wrapper big active">
       <div class="spinner-layer spinner-blue-only">
         <div class="circle-clipper left">
@@ -43,6 +43,7 @@
         </div>
       </div>
     </div>
+  </div>
 
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
@@ -52,7 +53,7 @@
           <ul class="tabs">
             <li class="tab col s3"><a href="#test1">CEP</a></li>
             <li class="tab col s3"><a class="active" href="#test2">RUA</a></li>
-            <li class="tab col s3"><a class="active" href="#test2">LOG</a></li>
+            <li class="tab col s3"><a class="active" href="#test3">Histórico</a></li>
           </ul>
         </div>
 
@@ -63,7 +64,7 @@
           <input type="number" placeholder="Digite seu CEP" name="cep" id="cep">
           <!-- <button >Buscar</button> -->
           <a onclick="buscaCepFetch()" class="waves-effect waves-light btn"><i
-              class="material-icons left">search</i>Buscar Fetch</a>
+              class="material-icons left">search</i>Buscar</a>
           <!-- <a onclick="buscaCepAjax()" class="waves-effect waves-light btn"><i
               class="material-icons left">search</i>Buscar
             Ajax</a>
@@ -78,11 +79,11 @@
 
         </div>
 
-        <!-- TAB RUA -->
+        <!-- TAB DA RUA -->
         <div id="test2" class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <select onchange="pegarCidades()" id="estado" class="browser-default"></select>
+              <select onchange="pegarCidades()" placeholder="Cidade" id="estado" class="browser-default"></select>
             </div>
             <div class="input-field col s6">
               <select id="cidade" class="browser-default"></select>
@@ -96,44 +97,53 @@
               <a onclick="buscaRua()" class="waves-effect waves-light btn"><i
                   class="material-icons right">search</i>Enviar</a>
             </div>
+
+            <!-- onde vai aparecer as ruas -->
           </div>
 
-          <div id="lista-ruas">
-            aqui vai aparecer varias ruas
-          </div>
+            <div id="lista-ruas"> </div>
+
         </div>
+
+        <!-- TAB DO LOG -->
+        <div id="test3" class="col s12">
+
+          <!-- onde vai aparecer os logs -->
+          <div id="lista-logs">
+            aqui vai aparecer os logs
+          </div>
+
+        </div>
+
+
+
       </div>
 
-      <!-- TAB LOG -->
-       <div id="test2" class="col s12">
-          <div class="row">
-            <div class="input-field col s6">
-            </div>
-          </div>
-        </div>
 
-      <!-- Compiled and minified JavaScript -->
-      <!--  Scripts EXTERNOS -->
+      <!--  Scripts Externos -->
       <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="js/materialize.js"></script>
       <script src="js/init.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
 
-      <!-- MEUS SCRIPTS -->
-
-       <!-- SCRIPTS CEP -->
-      <script src="js/scripts/cep/buscaCepAjax.js"></script>
-      <script src="js/scripts/cep/buscaCepAxios.js"></script>
-      <script src="js/scripts/cep/buscaCepFetch.js"></script>
-      <!-- SCRIPTS RUA -->
-      <script src="js/scripts/rua/buscaRua"></script>
-      <script src="js/scripts/rua/pegarCidades.js"></script>
-      <script src="js/scripts/rua/pegarEstados.js"></script>
-
+      <!-- SCRIPT DO LOG -->
+      <script src="/js/scripts/log/salvarLog.js"></script>
+      <!-- <script src="/js/scripts/log/logCep.js"></script>
+      <script src="/js/scripts/log/logRua.js"></script> -->
       
+      <!-- MEUS SCRIPTS DO CEP -->
+      <script src="/js/scripts/cep/buscaCepAjax.js"></script>
+      <script src="/js/scripts/cep/buscaCepFetch.js"></script>
+      <script src="/js/scripts/cep/buscaCepAxios.js"></script>
+
+      <!-- MEUS SCRIPT DE RUA -->
+      <script src="./js/scripts/rua/buscaRua.js"></script>
+      <script src="/js/scripts/rua/pegarCidades.js"></script>
+      <script src="/js/scripts/rua/pegarEstados.js"></script>
+
       <script>
-        $(".progress").hide(); //Esconde o LOADING  
+        $(".preloader-wrapper").hide(); // ESCONDE O LOADING
       </script>
 
 </body>
