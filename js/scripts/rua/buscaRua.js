@@ -7,7 +7,9 @@ function buscaRua() {
 
   url = `https://viacep.com.br/ws/${estado}/${cidade}/${rua}/json/`
 
-  console.log("url montada", url)
+
+  salvarLog(url, 'rua')
+  // console.log("url montada", url)
 
   fetch(url)
     .then((res) => {
@@ -33,5 +35,4 @@ function buscaRua() {
       }, 2000)
     })
 
-    logRua();
 }
