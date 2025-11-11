@@ -1,18 +1,29 @@
-function pegarEstados() { // FUNÇÃO CRIADA PARA PEGAR OS ESTADOS 
-  selectEstado = document.querySelector("#estado") // selecio na elemento SELECT NO HTML
-  let urlEstado = "https://servicodados.ibge.gov.br/api/v1/localidades/estados" //URL DO IBGE
+function pegarEstados() {
+  // Seleciona o dropdown de estados
+  selectEstado = document.querySelector("#estado");
 
-  fetch(urlEstado) // CHAMADA FETCH PARA A URL
-    .then((res) => { return res.json() }) // THEN PRA MONTAR O JSON
-    .then((estados) => { // THEN JÁ COM O JSON MONTANDO DOS ESTADOS
+  // URL da API do IBGE
+  let urlEstado = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
 
-      // INSERINDO ELEMENTO PADRÃO DO SELECT
-      let estadosList = '<option value="" disabled selected>Escolha um Estado</option>'
-      for (let i = 0; i < estados.length; i++) { // FOR PARA LISTAR TODOS OS ESTADOS
-        estadosList += `<option value="${estados[i].sigla}">${estados[i].nome}</option>`
+  // Requisição para obter os estados
+  fetch(urlEstado)
+    .then((res) => res.json())
+    .then((estados) => {
+      console.log(estados);
+
+      // Cria a opção inicial
+      let estadosList = '<option value="" disabled selected>Escolha um Estado</option>';
+
+      // Adiciona os estados ao select
+      for (let i = 0; i < estados.length; i++) {
+        estadosList += `<option value="${estados[i].sigla}">${estados[i].nome}</option>`;
       }
 
-      selectEstado.innerHTML = estadosList // INSERE NO ELEMENTO SELECT TODOS ESTADOS
-    })
+      // Atualiza o dropdown
+      selectEstado.innerHTML = estadosList;
+    });
 }
-pegarEstados() 
+
+// Executa ao carregar o script
+pegarEstados();
+window.pegarEstados = pegarEstados;
