@@ -1,3 +1,10 @@
+//function mostrarBarra() {
+ // document.getElementById("barraCarregando").style.display = "block";
+//}
+
+//function esconderBarra() {
+  //document.getElementById("barraCarregando").style.display = "none";
+//}
 async function buscaCepFetch() {
   // Pega o CEP digitado
   let cep = document.querySelector("input").value;
@@ -5,6 +12,8 @@ async function buscaCepFetch() {
 
   // Monta a URL da API ViaCEP
   let url = `https://viacep.com.br/ws/${cep}/json/`;
+
+   //mostrarBarra(); // 👈 mostra a barrinha
 
   // Requisição com Fetch
   fetch(url)
@@ -41,4 +50,7 @@ async function buscaCepFetch() {
       salvarLog('CEP', { cep }, 'Erro na consulta: ' + error.message, 'erro', url);
       alert('Erro ao buscar CEP. Verifique sua conexão.');
     });
+
+   // .finally(() => esconderBarra()); // 👈 esconde no final
+
 }

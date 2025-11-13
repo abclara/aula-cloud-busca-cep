@@ -6,6 +6,8 @@ async function buscaCepAxios() {
   // Monta a URL da API ViaCEP
   let url = `https://viacep.com.br/ws/${cep}/json/`;
 
+  //mostrarBarra(); // 👈 mostra a barrinha
+
   // Requisição com Axios
   axios.get(url)
     .then(function (response) {
@@ -17,5 +19,7 @@ async function buscaCepAxios() {
       document.querySelector("#dadoBairro").innerText = dados.bairro;
       document.querySelector("#dadoCidade").innerText = dados.localidade;
       document.querySelector("#dadoEstado").innerText = dados.uf;
-    });
+    })
+
+    //.finally(() => esconderBarra()); // 👈 esconde no final
 }

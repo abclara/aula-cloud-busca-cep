@@ -3,8 +3,15 @@ async function buscaCepAjax() {
   let cep = document.querySelector("input").value;
   console.log("buscando cep", cep);
 
+  if (!cep) {
+    alert("Digite um CEP!");
+    return;
+  }
+
   // Monta a URL da API ViaCEP
   let url = `https://viacep.com.br/ws/${cep}/json/`;
+
+  //mostrarBarra(); // 👈 mostra a barrinha
 
   // Faz a requisição via jQuery AJAX
   $.ajax({
@@ -21,6 +28,10 @@ async function buscaCepAjax() {
     },
     error: function (jqXHR, textStatus, errorThrown) {
       console.error('Erro na requisição:', textStatus, errorThrown);
+      alert('Erro ao buscar o CEP.');
+    },
+    complete: function () {
+     // esconderBarra(); // 👈 esconde a barrinha quando termina (sucesso ou erro)
     }
   });
 }
